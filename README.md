@@ -111,14 +111,19 @@ option(c("--nProcs"), type = "integer", default = 1,
 ##### Rest of options are good
 option(c("--clean_clusters"), type="logical", default=TRUE, 
               help="should clusters be cleaned and merged?", metavar="character")
+              
 option(c("--clonal_cutOff"), type="numeric", default=0.9, 
               help="lower threshold CCF to be considered clonal", metavar="character")
+              
 option(c("--propClonal_threshold"), type="numeric", default=0.25, 
               help="proportion of cluster that needs to be considered clonal to merge", metavar="character")
+              
 option(c("--fix_absentCCFs"), type="logical", default=TRUE, 
               help="should CCF of absent mutations be set to zero?", metavar="character")
+              
 option(c("--driver_filter"), type="character", default="1A,1,2A", 
               help="what filter to use for drivers", metavar="character")
+              
 option(c("--burn_in"), type="integer", default=1000, 
               help="burn-in for DP clustering", metavar="character")
 
