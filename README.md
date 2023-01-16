@@ -88,13 +88,16 @@ sh 0_runningTreeBuilding.sh
               help="A mutation table in long format (mutations x tumour regions)", metavar="character")
 
 **This is essentail** to run CONIPHER. Columns:
-SAMPLE	CHR	POS	REF	ALT	REF_COUNT	VAR_COUNT	DEPTH	COPY_NUMBER_A	COPY_NUMBER_B	PLOIDY	ACF
+| SAMPLE | CHR | POS | REF | ALT | REF_COUNT | VAR_COUNT | DEPTH | COPY_NUMBER_A | COPY_NUMBER_B | PLOIDY | ACF |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
   
 - option(c("--input_seg_tsv"), type="character", default=NULL, 
               help="A copy number segment .tsv used for plotting only", metavar="character")
 **This optional**  as `seg.mat.copy` can replace it if input_tsv get the copy number info. Columns:
-COPY_NUMBER_A	COPY_NUMBER_B	PLOIDY	ACF
+
+| COPY_NUMBER_A | COPY_NUMBER_B | PLOIDY | ACF |
+| --- | --- | --- | --- |
 
 - option(c("--subclonal_copy_correction"), type="logical", default="TRUE", 
               help="should subclonal copy number correction be used", metavar="character")
