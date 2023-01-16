@@ -88,8 +88,8 @@ sh 0_runningTreeBuilding.sh
               help="A mutation table in long format (mutations x tumour regions)", metavar="character")
 
 **This is essentail** to run CONIPHER. Columns:
-| SAMPLE | CHR | POS | REF | ALT | REF_COUNT | VAR_COUNT | DEPTH | COPY_NUMBER_A | COPY_NUMBER_B | PLOIDY | ACF |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CASE_ID | SAMPLE | CHR | POS | REF | ALT | REF_COUNT | VAR_COUNT | DEPTH | COPY_NUMBER_A | COPY_NUMBER_B | PLOIDY | ACF |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
   
 - option(c("--input_seg_tsv"), type="character", default=NULL, 
