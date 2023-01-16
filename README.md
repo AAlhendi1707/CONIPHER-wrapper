@@ -136,3 +136,4 @@ help="should only truncal subclonal copy number correction be used",metavar="cha
 ## questions:
 - do we use it with indels?
 - how the driver_filter works?
+- in subclonal copy number from ASCAT do we use nMajor	nMinor or nAraw	nBraw as input?
