@@ -94,21 +94,24 @@ sh 0_runningTreeBuilding.sh
   
 - option(c("--input_seg_tsv"), type="character", default=NULL, 
               help="A copy number segment .tsv used for plotting only", metavar="character")
-**This optional**  as `seg.mat.copy` can replace it if input_tsv get the copy number info. Columns:
 
+**This optional**  as `seg.mat.copy` can replace it if input_tsv get the copy number info. Columns:
 | COPY_NUMBER_A | COPY_NUMBER_B | PLOIDY | ACF |
 | --- | --- | --- | --- |
 
 - option(c("--subclonal_copy_correction"), type="logical", default="TRUE", 
               help="should subclonal copy number correction be used", metavar="character")
+
 **This is not required** as no use for it in the script, as only mode  to work without it “FALSE mode”. By defult not needed as seg.mat.copy will automatically convert into phylo seg.mat.phylo in FALSE mode. 
   
 - option(c("--only_truncal_subclonal_copy_correction"), type="logical", default="TRUE", 
 help="should only truncal subclonal copy number correction be used",metavar="character")
+
 **This is required** and it is TRUE by default, It is a sort of fix for CNA correction when it didn't make the mutation clonal
 
 - option(c("--nProcs"), type = "integer", default = 1,
               help="Number of cores allocated to run script in parallel", metavar="character")
+
 **This can be increased** to speed up the pyclone run
 
 ##### Rest of options are good
