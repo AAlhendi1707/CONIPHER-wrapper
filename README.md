@@ -133,3 +133,6 @@ help="should only truncal subclonal copy number correction be used",metavar="cha
 - option(c("--burn_in"), type="integer", default=1000, 
               help="burn-in for DP clustering", metavar="character")
 
+## questions:
+- do we use it with indels?
+- how the driver_filter works?
