@@ -22,13 +22,23 @@ On your terminal, ensure you are located in the `CONIPHER-wrapper` directory.
 
 1. Create the conda environment with the following libaries installed
 ```
-conda create -n conipher -c bioconda -c conda-forge pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer
+conda install -n base -c conda-forge mamba
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+now use mamba to resolve it
+
+```
+mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud
+
 ```
 
 2. Once this has been run, activate the conda environment and start R
 
 ```
-conda activate conipher
+mamba activate conipher
+
 R
 ```
 
