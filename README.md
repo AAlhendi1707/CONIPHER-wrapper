@@ -30,7 +30,7 @@ conda config --add channels conda-forge
 now use mamba to resolve it
 
 ```
-mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud
+mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud bioconductor-genomicranges bioconductor-rsamtools bioconductor-copynumber
 
 ```
 
@@ -45,23 +45,8 @@ R
 3. Subsequently install the below list of packages from an R session. NOTE: please do not update related packages during installation when prompted to do so. 
 
 ```
-# Packages required for CONIPHER clustering
-
-install.packages("mclust")
-BiocManager::install("GenomicRanges")
-BiocManager::install("Rsamtools")
-install.packages("gplots")
-install.packages("gdata")
-install.packages("future")
-install.packages("optparse")
-install.packages("bootstrap")
-BiocManager::install("copynumber")
-devtools::install_version("sequenza", version = "2.1.2")
-install.packages("coin")
-install.packages("wordcloud")
-
-
 # CONIPHER treebuilding R package
+devtools::install_version("sequenza", version = "2.1.2")
 devtools::install_github("McGranahanLab/CONIPHER")
 ```
 
