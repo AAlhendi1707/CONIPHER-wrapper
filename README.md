@@ -80,8 +80,10 @@ mamba deactivate
 
 We provide a wrapper bash script to run CONIPHER clustering and tree building end-to-end. To run this from the conda environment set up as above on the example case CRUKTOY001 provided, first ensure you are in the `CONIPHER-wrapper` folder on your terminal, then run the following command:
 
+Dont forget to edit Conipheer_RUN.sh before run it
 ```
-sh 0_runningClusteringTreeBuilding.sh
+mamba activiate conipher
+sh Conipheer_RUN.sh
 ```
 
 
@@ -89,9 +91,6 @@ sh 0_runningClusteringTreeBuilding.sh
 
 We additionally provide a wrapper script to run CONIPHER tree building by itself. To run this from the conda environment set up as above on the example case CRUKTOY001 provided, first ensure you are in the `CONIPHER-wrapper` folder on your terminal, then run the following command:
 
-```
-sh 0_runningTreeBuilding.sh
-```
 
 #### Input parameters
 
@@ -145,10 +144,10 @@ help="should only truncal subclonal copy number correction be used",metavar="cha
               help="burn-in for DP clustering", metavar="character")
 
 ## questions:
-- do we use it with indels?
-- how the driver_filter works?
+- do we use it with indels? No
+- how the driver_filter works? No
 - in subclonal copy number from ASCAT do we use nMajor	nMinor or nAraw	nBraw as input?
-- which Ref genome build ?
+- which Ref genome build ? work for both hg19 and hg38
 - why  driverCategory is NA for all
 - which list used for is_blacklist
 
