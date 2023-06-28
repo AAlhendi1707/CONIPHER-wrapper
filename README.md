@@ -46,7 +46,23 @@ R
 
 ```
 # CONIPHER treebuilding R package
+# Packages required for CONIPHER clustering
+
+install.packages("mclust")
+BiocManager::install("GenomicRanges")
+BiocManager::install("Rsamtools")
+install.packages("gplots")
+install.packages("gdata")
+install.packages("future")
+install.packages("optparse")
+install.packages("bootstrap")
+BiocManager::install("copynumber")
 devtools::install_version("sequenza", version = "2.1.2")
+install.packages("coin")
+install.packages("wordcloud")
+
+
+# CONIPHER treebuilding R package
 devtools::install_github("McGranahanLab/CONIPHER")
 ```
 
