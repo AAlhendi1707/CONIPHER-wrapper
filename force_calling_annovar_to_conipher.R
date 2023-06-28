@@ -12,12 +12,18 @@ suppressPackageStartupMessages(require(maftools))
 
 ## Define some functions
 ## function to phrase chr of dataframe name into actual dataframe
+f <- function(expression) {
+  return(eval(parse(text=expression)))
+}
+
+## function to phrase chr of dataframe name into actual dataframe
 
 forcecalling.input.file <- paste0(Work.dir, "/", PatientID, ".forcecalled.mutect2.hg19_multianno.txt")
 
 
 df <- fread(forcecalling.input.file)
 SampleInfo <- fread(SampleInfo)
+
 
 # sort as in vcf info columns
 SampleInfo <- SampleInfo[order(SampleInfo$Tumor_Sample_Barcode),]
@@ -42,7 +48,8 @@ fwrite(df2, filename.barcoded, sep="\t")
 
 ## convert to maf
 
-var.maf <- annovarToMaf(annovar = filename.barcoded, Center = NULL, refBuild = "hg19", tsbCol = "Barcode", table = "refGene", sep = "\t")
+var.maf <- annovarToMaf(annovar = filename.barcoded, Center = NULL, refBuild = "hg19", 
+tsbCol = "Barcode", table = "refGene", sep = "\t")
 maf.filename <- paste0(PatientID, ".somatic_oncefiltered.mutect2.pass.hg19_multianno.withBarcode.maf")
 fwrite(var.maf, maf.filename, sep="\t")
 
@@ -83,8 +90,8 @@ dfcnv$Barcode <- as.character(dfcnv$sample)
 dfcnv$sample <- NULL
 
 dfcnv <- merge(dfcnv, SampleInfo, by.x="Barcode", by.y="Tumor_Sample_Barcode")
-dfcnv <- dfcnv %>% select(CASE_ID, SAMPLE, SampleID, chr, startpos, endpos, Ploidy, ACF, nMajor, nMinor, nAraw, nBraw)
 
+dfcnv <- dfcnv %>% select(CASE_ID, SAMPLE, SampleID, chr, startpos, endpos, Ploidy, ACF, nMajor, nMinor, nAraw, nBraw)
 # rename columns
 colnames(dfcnv)[1:6] <- c("CASE_ID", "SAMPLE", "SampleID", "Chromosome","Start_Position","End_Position")
 # filter for only Autosomal chromosomes
@@ -93,15 +100,18 @@ dfcnv$Chromosome <- as.character(dfcnv$Chromosome)
 
 SampleNames <- unique(SampleInfo$SampleID)
 
+## step 4 - Split maf and CNV by sample id
+for ( x in SampleNames){
+    assign (paste0("SNV.",x) , dfsnv[dfsnv$Tumor_Sample_Barcode == x, ] )
+    assign (paste0("CNV.",x) , dfcnv[dfcnv$SampleID == x, ] )
+}
 
-## step 5 - Adding CNV minor and major to snv
+## step 6 - Adding CNV minor and major to snv
 # loop throught sample to combine SNV + CNV and rbind them
-
 dfxall = data.frame()
 for ( i in SampleNames){
-    print(i)
-    cnvi <- as.data.table(dfcnv[dfcnv$SampleID == i, ])
-    snvi <- as.data.table(dfsnv[dfsnv$Tumor_Sample_Barcode == i, ])
+    cnvi <- f(paste0("CNV.", i))
+    snvi <- f(paste0("SNV.", i))
     setkey(cnvi, Chromosome, Start_Position, End_Position)
     df.temp <- foverlaps(snvi, cnvi)
     dfxall <- rbind(dfxall,df.temp)         
@@ -119,6 +129,6 @@ rename(CHR =Chromosome, POS=i.Start_Position, REF =Reference_Allele, ALT = Tumor
 Protein_change = aaChange, COPY_NUMBER_A = nMajor, COPY_NUMBER_B= nMinor, PLOIDY = Ploidy)
 
 
-## step 6 - write the SNV (with local cnv) files  
+## step 7 - write the SNV (with local cnv) files  
 
 fwrite(dfxall, paste0(Work.dir, "/", PatientID,".input.tsv"), sep="\t")
