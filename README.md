@@ -30,7 +30,7 @@ conda config --add channels conda-forge
 now use mamba to resolve it
 
 ```
-mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud bioconductor-genomicranges bioconductor-rsamtools bioconductor-copynumber
+mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud bioconductor-genomicranges bioconductor-rsamtools bioconductor-copynumber r-sequenza
 
 ```
 
@@ -46,7 +46,6 @@ R
 
 ```
 # CONIPHER treebuilding R package
-devtools::install_version("sequenza", version = "2.1.2")
 devtools::install_github("McGranahanLab/CONIPHER")
 ```
 
@@ -54,7 +53,7 @@ devtools::install_github("McGranahanLab/CONIPHER")
 
 ```
 q()
-conda deactivate
+mamba deactivate
 ```
 
 --- 
