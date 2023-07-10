@@ -3,8 +3,8 @@
 ################################################################################## Input parameters
 ###################################################################################################
 case_id=$1
-scriptDir=`pwd`"/src/"
-Workdir=""
+scriptDir="path/to/src/"
+Workdir="path/to/workdir"
 sampleinfo="${Workdir}/SampleInfo.txt"
 inputDir="${Workdir}/input/"
 outDir="${Workdir}/results/"
