@@ -80,10 +80,16 @@ mamba deactivate
 
 We provide a wrapper bash script to run CONIPHER clustering and tree building end-to-end. To run this from the conda environment set up as above on the example case CRUKTOY001 provided, first ensure you are in the `CONIPHER-wrapper` folder on your terminal, then run the following command:
 
-Dont forget to edit Conipheer_RUN.sh before run it
+TO run longitudinally use
 ```
-mamba activiate conipher
-sh Conipheer_RUN.sh
+conda activiate conipher
+sh Running.longitudinal.cluster.buildtree.mapclone.sh
+```
+
+To run cross-sectionally use
+```
+conda activiate conipher
+sh Running.cross_sectional.cluster.buildtree.mapclone.sh
 ```
 
 
