@@ -7,10 +7,6 @@ library(vegan)
 
 set.seed(1)
 
-
-#treebuildDir <- '/home/alhendi/gamble-lung_precancer/Lukas_WES/CONIPHER/CONIPHER-wrapper/data/results/TreeBuilding'
-#case.id <- "P106"
-
 setwd(treebuildDir)
 
 
