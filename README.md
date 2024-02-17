@@ -30,7 +30,7 @@ conda config --add channels conda-forge
 now use mamba to resolve it
 
 ```
-mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-devtools r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud bioconductor-genomicranges bioconductor-rsamtools bioconductor-copynumber bioconductor-maftools
+mamba create -n conipher pyclone r-base=3.6.1 r-essentials r-devtools r-tidyverse r-cowplot r-ggpubr r-fst r-biocmanager r-devtools r-seqminer r-coin r-mclust r-gplots r-gdata r-future r-optparse r-bootstrap r-wordcloud r-igraph bioconductor-genomicranges bioconductor-rsamtools bioconductor-copynumber bioconductor-maftools
 
 ```
 
