@@ -63,7 +63,7 @@ install.packages("wordcloud")
 
 
 # CONIPHER treebuilding R package
-devtools::install_github("McGranahanLab/CONIPHER")
+devtools::install_github("McGranahanLab/CONIPHER@v1.0.0")
 ```
 
 4. Once all of these have been installed quit R and deactivate the conda environment
